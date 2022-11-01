@@ -1,0 +1,38 @@
+# how to create a table using  dictionary
+
+
+
+
+
+
+import xlsxwriter
+from xlsxwriter.utility import xl_rowcol_to_cell
+wb = xlsxwriter.Workbook("lesson2.xlsx")
+ws = wb.add_worksheet('input')
+ 
+#  .................................
+#  create dictionary for input parameter 
+variables = {
+    'No. of Years' : 10,
+    'Income' : 50000,
+    'Expense' : 30000,
+    "Income Increase": 0.05,
+    "Investment return" : 0.06,
+    "Inflation": 0.03
+
+
+
+ }
+
+row = 1
+col = 1
+# ............  keys into list example ['No. of Years', 'Income', 'Expense', 'Income Increase', 'Investment return', 'Inflation'])
+print(variables.keys()) 
+
+for i in  variables.keys():
+    print(variables[i])
+    # get the value corresponding key
+    ws.write(row,col,i)
+    ws.write(row,col+1,variables[i])
+    row +=1
+wb.close()
